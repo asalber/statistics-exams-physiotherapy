@@ -1,0 +1,180 @@
+---
+title: Descriptive Statistics and Regression exam  (2023/03/23)
+lang: en
+date: 2023-03-23
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+library(kableExtra)
+```
+
+:::{#exr-1}
+```{r, echo=F, results= "hide"}
+## DATA GENERATION
+z <- factor(rep(c("SS","AP","NT","SB"), c(18, 24, 15, 3)), levels = c("SS","AP","NT","SB"))
+x <- rep(c(2.5, 6, 8, 9.5), c(18, 24, 15, 3))
+df <- data.frame(z)
+y <- 10 * x + 5
+
+## QUESTION/ANSWER GENERATION
+# Tamaño de la muestra
+n <- length(x)
+# Median
+me <- 5+2*0.2/0.4
+# Cumulative frequency for 8
+F8 <- 0.7 + (0.95-0.7) / (9-7)
+N8 <- F8 * n
+# Mean
+mx <- mean(x)
+my <- mean(y)
+# Variance
+s2x <- sum(x^2)/n-mx^2
+s2y <- sum(y^2)/n-my^2
+# Std. deviation
+sx <- sqrt(s2x)
+sy <- sqrt(s2y)
+# Coef. variation
+cvx <- sx/mx
+cvy <- sy/my
+# Coef. skewness
+g1x <- sum((x-mx)^3)/(n*sx^3)
+g1y <- sum((y-my)^3)/(n*sy^3)
+# Coef. kurtosis
+g2x <- sum((x-mx)^4)/(n*sx^4)-3
+g2y <- sum((y-my)^4)/(n*sy^4)-3
+```
+
+
+The chart below shows the percentage of grades in a Statistic course with 60 students. 
+
+```{r pie-chart-scores, results = "hide", fig.height = 5, fig.width = 6, fig.path = "img/exam-2023-03-23/", fig.cap = ""}
+library(lessR)
+# Pie chart of grades
+PieChart(z, hole = 0, values = "%", data = df, main = "")
+```
+
+a. Plot the ogive of the score, assuming the following correspondence between grades and scores
+
+$$
+\begin{array}{lc}
+  \mbox{Grade} & \mbox{Score}\\
+  \mbox{SS} & [0, 5)\\
+  \mbox{AP} & [5, 7)\\
+  \mbox{NT} & [7,9)\\
+  \mbox{SB} & [9,10]
+\end{array}
+$$
+
+a. Compute the median and interpret it.
+
+a. How many students got a score greater than 8?
+
+a. Study the dispersion of the distribution.
+
+a. Study the skewness of the distribution. Is it normal?
+
+a. If we apply the transformation $y=10x+5$ to the scores, how changes the representativeness of the mean. And the skewness?
+
+Use the following sums for the computations ($X$ = Score):  
+$\sum x_in_i=`r round(sum(x), 2)`$, $\sum x_i^2n_i=`r round(sum(x^2), 4)`$, $\sum (x_i-\bar x)^3n_i=`r round(sum((x-mx)^3),2)`$ and $\sum (x_i-\bar x)^4n_i=`r round(sum((x-mx)^4),2)`$.
+:::
+
+:::{.callout-tip collapse="true"}
+## Solution
+a. Ogive 
+
+```{r ogive-scores, results = "hide", fig.height = 5, fig.width = 6, fig.path = "img/exam-2023-03-23/", fig.cap = ""}
+color1 <- "#00BFC4"
+plot(c(0, 5, 7, 9, 10), c(0, 0.3, 0.7, 0.95, 1), type = "l", col = color1, xlab = "Score", ylab = "Cumulative relative frequency", axes = F)
+axis(1, at = 0:10)
+axis(2, at = seq(0,1,0.1))
+box()
+```
+
+b. $Me = `r me`$ points.
+
+c. $N(8) = `r N8`$ students.
+
+d. $\bar x = `r round(mx, 4)`$ points, $s_x^2=`r round(s2x,4)`$ points$^2$, $s_x=`r round(sx,4)`$ points and $cv_x=`r round(cvx,4)`$. Thus, there is a moderate dispersion with respect to the mean.
+
+e. $g_1 = `r round(g1x,4)`$ and therefore the distribution is a little bit left skewed.
+
+f. $\bar y = `r round(my, 4)`$ points, $s_y^2=`r round(s2y,4)`$ points$^2$, $s_y=`r round(sy,4)`$ points and $cv_y=`r round(cvy,4)`$. As $cv_y < cv_x$ the representativeness of the mean increases. As the slope of the linear transformation is positive, the skewness does not change.
+:::
+
+:::{#exr-2}
+```{r, echo=F, results= "hide"}
+## DATA GENERATION
+set.seed(12)
+x <- round(runif(40, 20, 45))
+y <- 38 + x/20 + round(rnorm(40),1)
+
+## QUESTION/ANSWER GENERATION
+# colors
+col1 <- "#05A1E6"
+# sample size
+n <- length(x)
+# means
+mx <- mean(x)
+mlogx <- mean(log(x))
+my <- mean(y)
+mlogy <- mean(log(y))
+# variances
+s2x <- sum(x^2)/n-mx^2
+s2logx <- sum(log(x)^2)/n-mlogx^2
+s2y <- sum(y^2)/n-my^2
+s2logy <- sum(log(y)^2)/n-mlogy^2
+# Covariances
+sxy <- sum(x * y) / n - mx * my
+sxlogy <- sum(x*log(y))/n-mx*mlogy
+slogxy <- sum(log(x)*y)/n-mlogx*my
+# Determination coeff
+r2xy <-  sxy^2 / (s2x * s2y)
+r2xlogy <- sxlogy^2/(s2x*s2logy)
+r2logxy <- slogxy^2/(s2logx*s2y)
+# Linear regression model
+reglin <- lm(y ~ x)
+# Exponential regression model y on x
+regexp <- lm(log(x)~y)
+# Logarithmic regression model x on y
+reglog <- lm(y~log(x))
+```
+
+A study tries to determine if there is a relation between the gestation time (in weeks) and the age of the mother (in years). A sample of 40 mothers was taken and the sums below summarize the results ($X$=Age and $Y$=Gestation time):
+
+$\sum x_i=`r round(sum(x), 4)`$ years, $\sum \log(x_i)=`r round(sum(log(x)), 4)`$ log(years), $\sum y_j=`r round(sum(y), 4)`$ weeks, $\sum \log(y_j)=`r round(sum(log(y)), 4)`$ log(weeks),  
+$\sum x_i^2=`r round(sum(x^2), 4)`$ years$^2$, $\sum \log(x_i)^2=`r round(sum(log(x)^2), 4)`$ log(years)$^2$, $\sum y_j^2=`r round(sum(y^2), 4)`$ weeks$^2$, $\sum \log(y_j)^2=`r round(sum(log(y)^2), 4)`$ log(weeks)$^2$,  
+$\sum x_iy_j=`r round(sum(x*y), 4)`$ years$\cdot$weeks, $\sum x_i\log(y_j)=`r round(sum(x*log(y)), 4)`$ years$\cdot$log(weeks), $\sum \log(x_i)y_j=`r round(sum(log(x)*y), 4)`$ log(years)$\cdot$weeks, $\sum \log(x_i)\log(y_j)=`r round(sum(log(x)*log(y)), 4)`$ log(years)$\cdot$log(weeks).
+
+a. Which regression models, linear, exponential or logarithmic, explains better the relation between the age and the gestation time? 
+
+a. Use the best model to predict the gestation time for a mother 45 years old. Is this prediction reliable?
+
+a. According to the linear model, how much increases or decreases the gestation time for every year of the mother?
+:::
+
+:::{.callout-tip collapse="true"}
+## Solution
+a. Linear model: $\overline{x}=`r round(mx,4)`$ years, $s_x^2=`r round(s2x,4)`$ years$^2$.  
+$\bar y=`r round(my,4)`$ weeks, $s_y^2=`r round(s2y,4)`$ weeks$^2$.  
+$s_{xy}=`r round(sxy,4)`$ years$\cdot$weeks.  
+$r^2 = `r round(r2xy, 4)`$. 
+
+    Exponential model: $\overline{\ln(y)} = `r round(mlogy, 4)`$ ln(weeks), $s_{\ln(y)}^2 = `r round(s2logy, 4)`$ ln(weeks)$^2$  
+    $s_{x\ln(y)} = `r round(sxlogy, 4)`$ years$\cdot\ln$(weeks).  
+    $r^2 = `r round(r2xlogy, 4)`$.  
+
+    Logarithmic model: $\overline{\ln(x)} = `r round(mlogx, 4)`$ ln(years), $s_{\ln(x)}^2 = `r round(s2logx, 4)`$  ln(years)$^2$  
+    $s_{\ln(x)y} = `r round(slogxy, 4)`$ ln(years)weeks.  
+    $r^2 = `r round(r2logxy, 4)`$.
+
+    As the linear coefficient of determination is greater, the linear model explains better the relation between de gestation time and the age of the mother. 
+
+a. 
+Linear regression model of $Y$ on $X$: $y = `r round(reglin$coefficients[1], 4)` + `r round(reglin$coefficients[2], 4)` x$.  
+Predictions: $y(45) = `r round(reglin$coefficients[1] + reglin$coefficients[2] * 45, 4)`$ weeks.  
+The predictions are not reliable because the coefficient of determination is pretty low.
+
+a. Regression coefficient of $Y$ on $X$: $b_{yx} = `r round(reglin$coefficients[2], 4)`$ weeks/year. The gestation time increases $`r round(reglin$coefficients[2], 4)`$ weeks per year.
+:::

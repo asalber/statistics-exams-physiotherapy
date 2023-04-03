@@ -1,0 +1,183 @@
+---
+title: Descriptive Statistics and Regression exam  (2018/05/31)
+lang: en
+date: 2018-05-31
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+library(kableExtra)
+```
+
+:::{#exr-1}
+```{r, results = "hide"}
+## data
+options(scipen = 999)
+x <- c(51,63,61,44,63,57,53,63,44,59,51,56,58,59,25,30,58,58)
+y <- c(66,71,82,85,72,70,68,74)
+ages <- sort(c(x,y))
+
+## questions/answer
+nx <- length(x)
+ny <- length(y)
+n <- nx+ny
+# quartiles
+q1 <- quantile(ages,probs = c(0.25), type=1)
+q2 <- quantile(ages,probs = c(0.5), type=1)
+q3 <- quantile(ages,probs = c(0.75), type=1)
+# interquartile range
+iqr <- q3-q1
+#fences
+f1 <- q1-1.5*iqr
+f2 <- q3+1.5*iqr
+# outliers
+outliers <- ages[ages<f1 | ages >f2]
+# means
+mx <- mean(x)
+my <- mean(y)
+# variances
+s2x <- sum(x^2)/nx-mx^2
+s2y <- sum(y^2)/ny-my^2
+# standard deviation
+sx <- sqrt(s2x)
+sy <- sqrt(s2y)
+# coef. variation
+cvx <- sx/mx
+cvy <- sy/my
+# coef. skewness
+g1x <- sum((x-mx)^3)/(nx*sx^3)
+g1y <- sum((y-my)^3)/(ny*sy^3)
+# standard scores
+zx <- (50-mx)/sx
+zy <- (72-my)/sy
+```
+
+The ages of a sample of patients of a physical therapy clinic are:
+
+```{r}
+kable(matrix(ages, ncol = 13, byrow = T)) %>% kable_styling()
+```
+
+a. Compute the quartiles.
+
+a. Draw the box plot and identify outliers (do not group data into intervals).
+
+a. Split the sample into two groups, patients younger and older than 65. In which group is the mean more representative. Justify the answer.
+
+a. Which distribution is less symmetric, the one of patients younger than 65 or the one of patients older?
+
+a. Which age is relatively smaller with respect to its group, 50 years in the group of patients younger than 65 or 72 years in the group of patients older than 65?
+
+Use the following sums for the computations.  
+Younger than 65: $\sum x_i=`r sum(x)`$ years, $\sum x_i^2=`r sum(x^2)`$ years$^2$, $\sum (x_i-\bar x)^3=`r round(sum((x-mx)^3),2)`$ years$^3$ and $\sum (x_i-\bar x)^4=`r round(sum((x-mx)^4),2)`$ years$^4$.  
+Older than 65: $\sum x_i=`r sum(y)`$ years, $\sum x_i^2=`r sum(y^2)`$ years$^2$, $\sum (x_i-\bar x)^3=`r round(sum((y-my)^3),2)`$ years$^3$ and $\sum (x_i-\bar x)^4=`r round(sum((y-my)^4),2)`$ years$^4$.
+:::
+
+:::{.callout-tip collapse="true"}
+## Solution
+1. $Q_1=`r q1`$ years, $Q_2=`r q2`$ years and $Q_3=`r q3`$ years.
+2. There are `r length(outliers)` outliers: `r paste(outliers, collapse=", ")`.
+
+```{r boxplot-ages, fig=T, fig.path="img/exam-2018-05-31/"}
+boxplot(ages, horizontal=T, main="Boxplot of patients ages")
+# require(ggplot2)
+# data <- data.frame(ages)
+# g <- ggplot(data, aes(x="", y=ages)) + geom_boxplot() + 
+#   labs(title="Boxplot of patients ages", x="Patients", y = "Ages") + 
+#   coord_flip() + 
+#   theme(plot.title = element_text(hjust = 0.5))
+# print(g)
+```
+
+2. Let $x$ be the age in patients younger than 65 and $y$ the age in patients older than 65.  
+$\bar x=`r round(mx,4)`$ years, $s_x^2=`r round(s2x,4)`$ years$^2$, $s_x=`r round(sx,4)`$ years and $cv_x=`r round(cvx,4)`$.  
+$\bar y=`r round(my,4)`$ years, $s_y^2=`r round(s2y,4)`$ years$^2$, $s_y=`r round(sy,4)`$ years and $cv_y=`r round(cvy,4)`$.  
+The mean is more representative in patients older than 65 since the coefficient of variation is smaller.
+3. $g_{1x}=`r round(g1x,4)`$ and $g_{1y}=`r round(g1y,4)`$, thus the distribution of ages of people younger than 65 is less symmetric.
+4. The standard scores are $z_x(50)=`r round(zx,4)`$ and $z_y(72)=`r round(zy,4)`$, thus 50 years is relative smaller in the group of people younger than 65.
+:::
+
+:::{#exr-2}
+```{r, echo = F, results = "hide"}
+## DATA GENERATION
+library(xtable)
+library(knitr)
+set.seed(123)
+x <- c(15, 35, 22, 28, 21, 18, 25, 30, 23, 20)
+y <- round(exp(-0.15*x+6) + rnorm(length(x)))
+table <- matrix(c(x,y), nrow = 2, byrow = T)
+rownames(table) <- c("Warm-up time", "Injuries")
+## QUESTION/ANSWER GENERATION
+# sample size
+n <- length(x)
+# means
+mx <- mean(x)
+mlogx <- mean(log(x))
+my <- mean(y)
+mlogy <- mean(log(y))
+# variances
+s2x <- sum(x^2)/n-mx^2
+s2logx <- sum(log(x)^2)/n-mlogx^2
+s2y <- sum(y^2)/n-my^2
+s2logy <- sum(log(y)^2)/n-mlogy^2
+# Covariances
+sxlogy <- sum(x*log(y))/n-mx*mlogy
+slogxy <- sum(log(x)*y)/n-mlogx*my
+# Determination coeff
+r2xlogy <- sxlogy^2/(s2x*s2logy)
+r2logxy <- slogxy^2/(s2logx*s2y)
+# Exponential regression model
+regexp <- lm(log(y)~x)
+# Logarithmic regression model
+reglog <- lm(y~log(x))
+```
+
+The table below shows the number of injuries of several teams during a league and the average warm-up time of its players. 
+
+
+```{r}
+kable(table) %>% kable_styling()
+```
+
+a. Draw the scatter plot.
+
+a. Which regression model is more suitable to predict the number of injuries as a function of the warm-up time, the logarithmic or the exponential? 
+Use that regression model to predict the expected number of injuries for a team whose players warm-up 20 minutes a day.
+
+a. Which regression model is more suitable to predict the warm-up time as a function of the number of injuries, the logarithmic or the exponential? 
+Use that regression model to predict the warm-up time required to have no more than 10 injuries in a league.
+
+a. Are these predictions reliable? Which one is more reliable?
+
+Use the following sums for the computations ($X$ warm-up time and $Y$ number of injuries):  
+$\sum x_i=`r sum(x)`$, $\sum \log(x_i)=`r round(sum(log(x)),4)`$, $\sum y_j=`r sum(y)`$, $\sum \log(y_j)=`r round(sum(log(y)),4)`$,    
+$\sum x_i^2=`r sum(x^2)`$, $\sum \log(x_i)^2=`r round(sum(log(x)^2),4)`$, $\sum y_j^2=`r sum(y^2)`$, $\sum \log(y_j)^2=`r round(sum(log(y)^2),4)`$,  
+$\sum x_iy_j=`r sum(x*y)`$, $\sum x_i\log(y_j)=`r round(sum(x*log(y)),4)`$, $\sum \log(x_i)y_j=`r round(sum(log(x)*y),4)`$, $\sum \log(x_i)\log(y_j)=`r round(sum(log(x)*log(y)),4)`$.
+:::
+
+:::{.callout-tip collapse="true"}
+## Solution
+
+a. 
+
+```{r scatterplot-injuries-warm-up, fig.path="img/exam2018-05-31/"}
+plot(x, y, main="Scatter plot of warm-up time and injuries", xlab = "Warm-up time", ylab="Injuries")
+```
+
+a. $\bar x=`r round(mx,4)`$ min, $s_x^2=`r round(s2x,4)`$ min$^2$.  
+$\overline{\log(x)}=`r round(mlogx,4)`$ log(min), $s_{\log(x)}^2=`r round(s2logx,4)`$ log(min)$^2$.  
+$\bar y=`r round(my,4)`$ injuries, $s_y^2=`r round(s2y,4)`$ injuries$^2$.  
+$\overline{\log(y)}=`r round(mlogy,4)`$ log(injuries), $s_{\log(y)}^2=`r round(s2logy,4)`$ log(injuries)$^2$.  
+$s_{x\log(y)}=`r round(sxlogy,4)`$, $s_{\log(x)y}=`r round(slogxy,4)`$  
+Exponential determination coefficient: $r^2=`r round(r2xlogy,4)`$  
+Logarithmic determination coefficient: $r^2=`r round(r2logxy,4)`$  
+So the exponential regression model es better to predict the number of injuries as a function of the warm-up time.  
+Exponential regression model: $y=e^{`r round(regexp$coefficients[1],4)`+`r round(regexp$coefficients[2],4)`x}$.  
+Prediction: $y(20)=`r round(exp(regexp$coefficients[1] + regexp$coefficients[2]*20),4)`$ injuries.
+
+a. The logarithmic model is better to predict the warm-up time as a function of the number or injuries.  
+Logarithmic regression model: $x=`r round(reglog$coefficients[1],4)`+`r round(reglog$coefficients[2],4)`\log(y)$.  
+Prediction: $x(10)=`r reglog$coefficients[1]+reglog$coefficients[2]*log(10)`$ min.
+
+a. Both predictions are very reliable since de deternation coefficient is very high but the last one is a little less reliable as it is for a value further from the data range.
+:::
