@@ -1,0 +1,50 @@
+\begin{tikzpicture}[
+    grow'=right,
+    % sloped,
+    level 1/.style ={level distance=2cm, sibling distance=1.6cm, parent anchor=east, child anchor=west},
+    level 2/.style ={level distance=2cm, sibling distance=0.8cm},
+    level 3/.style ={level distance=1.5cm, sibling distance=0.8cm, dashed},
+    level 4/.style ={level distance=3cm, sibling distance=0.8cm, dashed},
+    prob/.style={font=\footnotesize,above}
+    ]
+    
+    
+    \node (root) {}
+        child {node {$C$}
+            child {node {$H$}
+                child {node{$C\cap H$}
+                    child {node{$0.0032$} edge from parent node[prob] {$0.08\cdot 0.04$}}
+                }
+                edge from parent node[prob] {$0.04$}
+            }
+            child {node {$\overline{H}$}
+                child {node{$C\cap \overline{H}$}
+                    child {node{$0.0768$} edge from parent node[prob] {$0.08\cdot 0.96$}}
+                }
+                edge from parent node[prob,below] {$0.96$}
+            }
+            edge from parent node[prob] {$0.08$}
+        }
+        child {node {$\overline{C}$}
+               child {node {$H$}
+                child {node{$\overline{C}\cap H$} 
+                    child {node{$0.0288$} edge from parent node[prob] {$0.92\cdot 0.0313$}}
+                }
+                edge from parent node[prob] {$0.0313$}
+            }
+            child {node {$\overline{H}$}
+                child {node{$\overline{C}\cap\overline{H}$} 
+                    child {node{$0.8912$} edge from parent node[prob] {$0.92\cdot 0.9687$}}
+                }
+                edge from parent node[prob,below] {$0.9687$}
+            }
+            edge from parent node[prob,below] {$0.92$}
+        };
+    
+    \begin{scope}[every node/.style={text width=2cm, align=center, anchor=center, font=\bfseries,}]
+    \node[above= 0.5cm of root-1-1-1-1] (labels-level) {Probability};
+    \node[at =(labels-level-|root-1-1-1)] {$\Omega$};
+    \node[at =(labels-level-|root-1-1)] {Heart attack};
+    \node[at =(labels-level-|root-1)] {Cocaine};
+    \end{scope}
+\end{tikzpicture}

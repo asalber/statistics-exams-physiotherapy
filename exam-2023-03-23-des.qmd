@@ -78,7 +78,6 @@ a. If we apply the transformation $y=10x+5$ to the scores, how changes the repre
 
 Use the following sums for the computations ($X$ = Score):  
 $\sum x_in_i=`r round(sum(x), 2)`$, $\sum x_i^2n_i=`r round(sum(x^2), 4)`$, $\sum (x_i-\bar x)^3n_i=`r round(sum((x-mx)^3),2)`$ and $\sum (x_i-\bar x)^4n_i=`r round(sum((x-mx)^4),2)`$.
-:::
 
 :::{.callout-tip collapse="true"}
 ## Solution
@@ -101,6 +100,7 @@ d. $\bar x = `r round(mx, 4)`$ points, $s_x^2=`r round(s2x,4)`$ points$^2$, $s_x
 e. $g_1 = `r round(g1x,4)`$ and therefore the distribution is a little bit left skewed.
 
 f. $\bar y = `r round(my, 4)`$ points, $s_y^2=`r round(s2y,4)`$ points$^2$, $s_y=`r round(sy,4)`$ points and $cv_y=`r round(cvy,4)`$. As $cv_y < cv_x$ the representativeness of the mean increases. As the slope of the linear transformation is positive, the skewness does not change.
+:::
 :::
 
 :::{#exr-2}
@@ -152,7 +152,6 @@ a. Which regression models, linear, exponential or logarithmic, explains better 
 a. Use the best model to predict the gestation time for a mother 45 years old. Is this prediction reliable?
 
 a. According to the linear model, how much increases or decreases the gestation time for every year of the mother?
-:::
 
 :::{.callout-tip collapse="true"}
 ## Solution
@@ -177,4 +176,5 @@ Predictions: $y(45) = `r round(reglin$coefficients[1] + reglin$coefficients[2] *
 The predictions are not reliable because the coefficient of determination is pretty low.
 
 a. Regression coefficient of $Y$ on $X$: $b_{yx} = `r round(reglin$coefficients[2], 4)`$ weeks/year. The gestation time increases $`r round(reglin$coefficients[2], 4)`$ weeks per year.
+:::
 :::

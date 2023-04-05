@@ -1,0 +1,107 @@
+---
+title: Probability and Random Variables Exam (2022-06-06)
+date: 2022-06-06
+lang: en
+---
+
+:::{#exr-1}
+```{r echo=FALSE, results="hide"}
+## DATA GENERATIONpre <- 1 / 500
+pre <- 0.1
+sen <- 0.99
+pright <- 0.8
+
+## QUESTION/ANSWER GENERATION
+tp <- pre * sen
+tn <- pright - tp
+spe <- tn / (1 - pre)
+fn <- pre * (1 - sen)
+fp <- (1 - pre) * (1 - spe)
+ppv <- tp / (tp + fp)
+npv <- tn / (tn + fn)
+minpre <- 0.1825
+```
+
+A diagnostic test for a cervical injury has a 99% of sensitivity and produces 80% of right diagnosis. Assuming that the prevalence of the injury is 10%
+
+a. Compute the specificity of the test.
+
+a. Can we rule out the injury with a negative outcome of the test?
+
+a. Can we diagnose the injury with a positive outcome of the test? What must the minimum prevalence of the injury be to diagnose the injury with a positive outcome of the test?
+
+:::{.callout-tip collapse="true"}
+## Solution
+a. Specificity = $P(-|\overline D) = `r round(spe, 4)`$.
+
+a. Negative predictive value = $P(\overline D|-) = `r round(npv,4)` > 0.5$, so we can rule out the injury with a negative outcome.
+
+a. Positive predictive value = $P(D|+) = `r round(ppv,4)` < 0.5$, so we can not diagnose the injury with a positive outcome. The minimum prevalence required to be able to diagnose the injury with a positive outcome is $P(D)=`r round(minpre,4)`$.
+:::
+:::
+
+:::{#exr-2}
+```{r echo=FALSE, results="hide"}
+## DATA GENERATION
+nA = 10
+pA = 0.05
+nB = 100
+pB = 0.02
+
+## QUESTION/ANSWER GENERATION
+p1 <- pbinom(1, nA, pA)
+p2 <- ppois(3, nB * pB, lower.tail = F)
+pAoB = pA + pB - pA * pB
+```
+
+A pharmacy sells two vaccines $A$ and $B$ against a virus. The $A$ vaccine produces 5%: of side effects, while the $B$ vaccine produces 2%: of side effects. The pharmacy has sold 10 units of the $A$ vaccine and 100 units of the $B$ vaccine.
+
+a. Compute the probability of having less than 2 side effects with the $A$ vaccine.
+
+a. Compute the probability of having more than 3 side effects with the $B$ vaccine.
+
+a. If we apply both vaccines to the same person at different moments, and assuming that the production of side effects of the vaccines are independent, what is the probability that this person will have any side effect?
+
+:::{.callout-tip collapse="true"}
+## Solution
+a. Let $X$ be the number of side effects in 10 applications of A vaccine. Then, $X\sim B(10, 0.05)$ and $P(X<2) = `r round(p1, 4)`$.
+
+a. Let $Y$ be the number of side effects in 100 applications of B vaccine. Then, $Y\sim B(100, 0.02)\approx P(2)$ and $P(Y>3) = `r round(p2, 4)`$.
+
+a. Let $A$ and $B$ the events of having side effects with vaccines A and B respectively. $P(A\cup B) = `r round(pAoB, 4)`$.
+:::
+:::
+
+:::{#exr-3}
+```{r echo=FALSE, results="hide"}
+## DATA GENERATION
+mx <- 44.91
+sx <- 4
+my <- 48.02
+sy <- 4
+## QUESTION/ANSWER GENERATION
+p60 <- qnorm(0.6, mx, sx)
+p1 <- pnorm(p60, my, sy)
+p2 <- pnorm(45, mx, sx, lower.tail = F) * pnorm(45, my, sy, lower.tail = F)
+```
+
+The length of the femur bone is normally distributed in both men and women with a standard deviation of 4 cm. It is also known that the first quartile in women is 42.3 cm, while the third quartile in men is 50.7 cm.
+
+a. What is the difference between the means of the femur length of women and men?  
+Remark: If you do not know how to compute the means, use a mean 44 cm for women and a mean 47 cm for men in the following parts. 
+
+a. Compute the 60th percentile of the femur length in women. What percentage of men have a femur length less than the 60th percentile of women?
+
+a. If we pick a woman and man at random, what is the probability that neither of them has a femur length less than 45 cm?
+
+:::{.callout-tip collapse="true"}
+## Solution
+Let $X$ and $Y$ be the femur length of women and men respectively. Then $X\sim N(\mu_x, 4)$ and $Y\sim N(\mu_y,4)$.
+
+a. $\mu_x = `r mx`$ cm and $\mu_y = `r my`$ cm.
+
+a. 60th percentile in women $P_{60}=`r round(p60,4)`$ cm, and $P(Y<`r round(p60,4)`) = `r round(p1, 4)`$, that is, a $`r round(p1, 4)*100`%:$ of men have a femur lenght less than the 60th percentile of women.
+
+a. $P(X\geq 45 \cap Y\geq45) = `r round(p2,4)`$.
+:::
+:::

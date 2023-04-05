@@ -75,8 +75,8 @@ Older than 65: $\sum x_i=`r sum(y)`$ years, $\sum x_i^2=`r sum(y^2)`$ years$^2$,
 
 :::{.callout-tip collapse="true"}
 ## Solution
-1. $Q_1=`r q1`$ years, $Q_2=`r q2`$ years and $Q_3=`r q3`$ years.
-2. There are `r length(outliers)` outliers: `r paste(outliers, collapse=", ")`.
+a. $Q_1=`r q1`$ years, $Q_2=`r q2`$ years and $Q_3=`r q3`$ years.
+a. There are `r length(outliers)` outliers: `r paste(outliers, collapse=", ")`.
 
 ```{r boxplot-ages, fig=T, fig.path="img/exam-2018-05-31/"}
 boxplot(ages, horizontal=T, main="Boxplot of patients ages")
@@ -89,12 +89,14 @@ boxplot(ages, horizontal=T, main="Boxplot of patients ages")
 # print(g)
 ```
 
-2. Let $x$ be the age in patients younger than 65 and $y$ the age in patients older than 65.  
+a. Let $x$ be the age in patients younger than 65 and $y$ the age in patients older than 65.  
 $\bar x=`r round(mx,4)`$ years, $s_x^2=`r round(s2x,4)`$ years$^2$, $s_x=`r round(sx,4)`$ years and $cv_x=`r round(cvx,4)`$.  
 $\bar y=`r round(my,4)`$ years, $s_y^2=`r round(s2y,4)`$ years$^2$, $s_y=`r round(sy,4)`$ years and $cv_y=`r round(cvy,4)`$.  
 The mean is more representative in patients older than 65 since the coefficient of variation is smaller.
-3. $g_{1x}=`r round(g1x,4)`$ and $g_{1y}=`r round(g1y,4)`$, thus the distribution of ages of people younger than 65 is less symmetric.
-4. The standard scores are $z_x(50)=`r round(zx,4)`$ and $z_y(72)=`r round(zy,4)`$, thus 50 years is relative smaller in the group of people younger than 65.
+
+a. $g_{1x}=`r round(g1x,4)`$ and $g_{1y}=`r round(g1y,4)`$, thus the distribution of ages of people younger than 65 is less symmetric.
+
+a. The standard scores are $z_x(50)=`r round(zx,4)`$ and $z_y(72)=`r round(zy,4)`$, thus 50 years is relative smaller in the group of people younger than 65.
 :::
 
 :::{#exr-2}
