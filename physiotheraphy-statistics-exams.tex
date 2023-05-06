@@ -8,7 +8,6 @@
 ]{scrreport}
 
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -18,6 +17,10 @@
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -101,7 +104,7 @@
 \usepackage{makecell}
 \usepackage{xcolor}
 \makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
 \definecolor{quarto-callout-color}{HTML}{909090}
 \definecolor{quarto-callout-note-color}{HTML}{0758E5}
@@ -159,7 +162,7 @@
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}[chapter]
 \theoremstyle{remark}
-\renewcommand*{\proofname}{Proof}
+\AtBeginDocument{\renewcommand*{\proofname}{Proof}}
 \newtheorem*{remark}{Remark}
 \newtheorem*{solution}{Solution}
 \makeatother
@@ -168,10 +171,12 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \makeatother
 \makeatletter
 \@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
 \makeatother
 \makeatletter
 \makeatother
@@ -203,7 +208,7 @@
 
 \title{Physiotherapy Statistics Exams}
 \author{Alfredo Sánchez Alberca}
-\date{1/11/22}
+\date{2022-01-11}
 
 \begin{document}
 \begin{titlepage}
@@ -233,7 +238,7 @@ Sánchez
 Alberca}\\ \textsf{asalber@ceu.es} \\ \textsf{https://aprendeconalf.es}}
 \end{tabular}
 \end{flushleft}
-\end{titlepage}\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, frame hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
+\end{titlepage}\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, interior hidden, sharp corners, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, enhanced, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -257,8 +262,7 @@ Statistics exam collection of the Physiotherapy degree.
 \chapter{Descriptive Statistics and Regression exam
 (2018/05/31)}\label{descriptive-statistics-and-regression-exam-20180531}}
 
-\leavevmode\vadjust pre{\hypertarget{exr-1}{}}%
-\begin{exercise}[]\label{exr-1}
+\begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
 ~
 
@@ -304,7 +308,7 @@ Older than 65: \(\sum x_i=588\) years, \(\sum x_i^2=43530\) years\(^2\),
 
 \end{exercise}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -315,7 +319,7 @@ Older than 65: \(\sum x_i=588\) years, \(\sum x_i^2=43530\) years\(^2\),
   There are 2 outliers: 25, 30.
 \end{enumerate}
 
-\includegraphics{./img/exam-2018-05-31/boxplot-ages-1.pdf}
+\includegraphics{img/exam-2018-05-31/boxplot-ages-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -339,8 +343,7 @@ Older than 65: \(\sum x_i=588\) years, \(\sum x_i^2=43530\) years\(^2\),
 
 \end{tcolorbox}
 
-\leavevmode\vadjust pre{\hypertarget{exr-2}{}}%
-\begin{exercise}[]\label{exr-2}
+\begin{exercise}[]\protect\hypertarget{exr-2}{}\label{exr-2}
 
 ~
 
@@ -387,7 +390,7 @@ Use the following sums for the computations (\(X\) warm-up time and
 
 \end{exercise}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -395,7 +398,7 @@ Use the following sums for the computations (\(X\) warm-up time and
 \item
 \end{enumerate}
 
-\includegraphics{./img/exam2018-05-31/scatterplot-injuries-warm-up-1.pdf}
+\includegraphics{img/exam2018-05-31/scatterplot-injuries-warm-up-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -432,8 +435,7 @@ Use the following sums for the computations (\(X\) warm-up time and
 \chapter{Probability and Random Variables Exam
 (2022-05-06)}\label{probability-and-random-variables-exam-2022-05-06}}
 
-\leavevmode\vadjust pre{\hypertarget{exr-1}{}}%
-\begin{exercise}[]\label{exr-1}
+\begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
 ~
 
@@ -459,7 +461,7 @@ people who have a heart attack consume cocaine.
   for this study? Interpret it.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 Let \(C\) the event of consuming cocaine and \(H\) the event of having a
 heart attack.
@@ -472,7 +474,7 @@ heart attack.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./img/exam-2022-05-06/probability-tree-cocaine.pdf}
+{\centering \includegraphics{img/exam-2022-05-06/probability-tree-cocaine.pdf}
 
 }
 
@@ -496,8 +498,7 @@ heart attack.
 
 \end{exercise}
 
-\leavevmode\vadjust pre{\hypertarget{exr-2}{}}%
-\begin{exercise}[]\label{exr-2}
+\begin{exercise}[]\protect\hypertarget{exr-2}{}\label{exr-2}
 
 ~
 
@@ -513,7 +514,7 @@ A basketball player scores 12 points per game on average.
   scoring less than 6 points in some game?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -531,8 +532,7 @@ A basketball player scores 12 points per game on average.
 
 \end{exercise}
 
-\leavevmode\vadjust pre{\hypertarget{exr-3}{}}%
-\begin{exercise}[]\label{exr-3}
+\begin{exercise}[]\protect\hypertarget{exr-3}{}\label{exr-3}
 
 ~
 
@@ -563,7 +563,7 @@ population, ranges from 40 to 308 IU/L in healthy adult males.
   that the muscular dystrophy prevalence is 8\%.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -592,8 +592,7 @@ population, ranges from 40 to 308 IU/L in healthy adult males.
 \chapter{Descriptive Statistics and Regression Exam
 (2022-06-06)}\label{descriptive-statistics-and-regression-exam-2022-06-06}}
 
-\leavevmode\vadjust pre{\hypertarget{exr-1}{}}%
-\begin{exercise}[]\label{exr-1}
+\begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
 ~
 
@@ -637,7 +636,7 @@ Use the following sums for the computations:\\
 \(\sum (x_i-\bar x)^3n_i=-548.25\) and
 \(\sum (x_i-\bar x)^4n_i=5140.45\).
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 Let \(X\) be the patient assessment. a. \(Q_1= 4.4444\), \(Q_3=9.0907\)
 and \(IQR = 4.6463\), so the central dispersion is moderate.
@@ -665,8 +664,7 @@ and \(IQR = 4.6463\), so the central dispersion is moderate.
 
 \end{exercise}
 
-\leavevmode\vadjust pre{\hypertarget{exr-2}{}}%
-\begin{exercise}[]\label{exr-2}
+\begin{exercise}[]\protect\hypertarget{exr-2}{}\label{exr-2}
 
 ~
 
@@ -711,7 +709,7 @@ Use the following sums (\(X\)=Weeks and \(Y\)=Grip strength):\\
 \(\sum x_iy_j=3552\), \(\sum x_i\log(y_j)=342.9642\),
 \(\sum \log(x_i)y_j=608.4186\), \(\sum \log(x_i)\log(y_j)=60.047\).
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -752,8 +750,7 @@ Use the following sums (\(X\)=Weeks and \(Y\)=Grip strength):\\
 \chapter{Probability and Random Variables Exam
 (2022-06-06)}\label{probability-and-random-variables-exam-2022-06-06}}
 
-\leavevmode\vadjust pre{\hypertarget{exr-1}{}}%
-\begin{exercise}[]\label{exr-1}
+\begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
 ~
 
@@ -773,7 +770,7 @@ injury is 10\%
   with a positive outcome of the test?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -793,8 +790,7 @@ injury is 10\%
 
 \end{exercise}
 
-\leavevmode\vadjust pre{\hypertarget{exr-2}{}}%
-\begin{exercise}[]\label{exr-2}
+\begin{exercise}[]\protect\hypertarget{exr-2}{}\label{exr-2}
 
 ~
 
@@ -818,7 +814,7 @@ vaccine and 100 units of the \(B\) vaccine.
   side effect?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -838,8 +834,7 @@ vaccine and 100 units of the \(B\) vaccine.
 
 \end{exercise}
 
-\leavevmode\vadjust pre{\hypertarget{exr-3}{}}%
-\begin{exercise}[]\label{exr-3}
+\begin{exercise}[]\protect\hypertarget{exr-3}{}\label{exr-3}
 
 ~
 
@@ -864,7 +859,7 @@ cm.
   neither of them has a femur length less than 45 cm?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 Let \(X\) and \(Y\) be the femur length of women and men respectively.
 Then \(X\sim N(\mu_x, 4)\) and \(Y\sim N(\mu_y,4)\).
@@ -891,15 +886,14 @@ Then \(X\sim N(\mu_x, 4)\) and \(Y\sim N(\mu_y,4)\).
 \chapter{Descriptive Statistics and Regression exam
 (2023/03/23)}\label{descriptive-statistics-and-regression-exam-20230323}}
 
-\leavevmode\vadjust pre{\hypertarget{exr-1}{}}%
-\begin{exercise}[]\label{exr-1}
+\begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
 ~
 
 The chart below shows the percentage of grades in a Statistic course
 with 60 students.
 
-\includegraphics{./img/exam-2023-03-23/pie-chart-scores-1.pdf}
+\includegraphics{img/exam-2023-03-23/pie-chart-scores-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -939,7 +933,7 @@ Use the following sums for the computations (\(X\) = Score):\\
 \(\sum (x_i-\bar x)^3n_i=-172.55\) and
 \(\sum (x_i-\bar x)^4n_i=2870.75\).
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -948,7 +942,7 @@ Use the following sums for the computations (\(X\) = Score):\\
   Ogive
 \end{enumerate}
 
-\includegraphics{./img/exam-2023-03-23/ogive-scores-1.pdf}
+\includegraphics{img/exam-2023-03-23/ogive-scores-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -975,8 +969,7 @@ Use the following sums for the computations (\(X\) = Score):\\
 
 \end{exercise}
 
-\leavevmode\vadjust pre{\hypertarget{exr-2}{}}%
-\begin{exercise}[]\label{exr-2}
+\begin{exercise}[]\protect\hypertarget{exr-2}{}\label{exr-2}
 
 ~
 
@@ -1008,7 +1001,7 @@ log(years)\(^2\), \(\sum y_j^2=62734.685\) weeks\(^2\),
   gestation time for every year of the mother?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, coltitle=black, breakable, bottomrule=.15mm, colback=white, toptitle=1mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, toprule=.15mm, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1041,6 +1034,174 @@ log(years)\(^2\), \(\sum y_j^2=62734.685\) weeks\(^2\),
 \item
   Regression coefficient of \(Y\) on \(X\): \(b_{yx} = 0.0753\)
   weeks/year. The gestation time increases \(0.0753\) weeks per year.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\end{exercise}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{probability-and-random-variables-exam-2023-04-27}{%
+\chapter{Probability and Random Variables Exam
+(2023-04-27)}\label{probability-and-random-variables-exam-2023-04-27}}
+
+\begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
+
+~
+
+A water source contaminated contains 0.1 amoebas per litre on average.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  What is the probability that 2 litres of water from this source
+  contains more than one amoeba?
+\item
+  If 5 persons drink 2 litres of water from this source, what is the
+  probability of having some person infected with amoebas?
+\item
+  If 100 persons drink half a litre of water from this source, what is
+  the probability that less than 5 are infected with amoebas?
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Let \(X\) be the number of amoebas in 2 litres of contaminated water.
+  Then \(X\sim P(0.2)\) and \(P(X>1)=0.0175\).
+\item
+  The probability that a person who drunk 2 litres of contaminated water
+  is infected is \(P(X\geq 1) = 0.1813\). Let \(Y\) be the number of
+  persons infected with amoebas in a sample of 5 persons who drunk 2
+  litres of contaminated water. Then \(Y\sim B(5, 0.1813)\) and
+  \(P(Y\geq 1)=0.6321\).
+\item
+  Let \(U\) be the number of amoebas in half a litre of contaminated
+  water. Then \(U\sim P(0.05)\) and \(P(U\geq 1)= 0.0488\). Let \(V\) be
+  the number of persons infected with amoebas in a sample of 100 persons
+  who drunk half a litre of contaminated water. Then
+  \(V\sim B(100, 0.0488)\approx P(4.8771)\) and \(P(V<5) = 0.4623\).
+\end{enumerate}
+
+\end{tcolorbox}
+
+\end{exercise}
+
+\begin{exercise}[]\protect\hypertarget{exr-2}{}\label{exr-2}
+
+~
+
+Respiratory allergies affect 1 out of every 15 individuals in a
+population, while food intolerances affect 5\% of individuals. Assuming
+that the two problems are independent,
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Compute the probability of having at least one of the problems.
+\item
+  Compute the probability of having an allergy but not an intolerance.
+\item
+  Compute the probability of having neither of the two problems.
+\item
+  Compute the probability of having an allergy if you have an
+  intolerance.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
+
+Let \(A\) the event of having respiratory allergies and \(B\) the event
+of having food intolerance.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  \(P(A\cup B) = 0.1133\).
+\item
+  \(P(A-B) = 0.0633\).
+\item
+  \(P(\overline A \cap \overline B) = 0.8867\).
+\item
+  \(P(A|B) = 0.0667\).
+\end{enumerate}
+
+\end{tcolorbox}
+
+\end{exercise}
+
+\begin{exercise}[]\protect\hypertarget{exr-3}{}\label{exr-3}
+
+~
+
+In a population of 20000 women, it is known that back width follows a
+normal distribution with mean 29 cm and standard deviation 2.4 cm.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Compute the number of women with a back width greater than 32 cm.
+\item
+  Compute the interquartile range of women's back width and interpret
+  it.
+\item
+  Compute the probability that a woman with a back width above the third
+  quartile, has a back width above 32.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
+
+Let \(X\) be the back width, then \(X\sim N(29, 2.4)\).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  \(P(X>32) = 0.1056\) and approximately \(2113\) persons have a back
+  width greater than 32 cm.
+\item
+  \(Q_1 = 27.3812\) cm, \(Q_3 = 30.6188\) cm, and \(IQR = 3.2376\) cm.
+\item
+  \(P(X>32| X>30.6188) = 0.4226\).
+\end{enumerate}
+
+\end{tcolorbox}
+
+\end{exercise}
+
+\begin{exercise}[]\protect\hypertarget{exr-4}{}\label{exr-4}
+
+~
+
+A diagnostic test for prostate cancer has a specificity of 80\% and
+produces 1.6\% of false negatives. It is known that the prevalence of
+prostate cancer in a population is 2\%.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Compute the sensitivity of the test. Does the outcome of the test
+  depend on whether a man has prostate cancer?
+\item
+  Is this a good test to diagnose the disease?
+\item
+  What should be the minimum specificity of the test to diagnose the
+  disease with a positive outcome?
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, breakable, colback=white, opacityback=0, opacitybacktitle=0.6, bottomrule=.15mm, bottomtitle=1mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, arc=.35mm, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, left=2mm]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Sensitivity = \(P(+|D) = 0.2\). The outcome of the test does not
+  depend on the prostate cancer.
+\item
+  Positive predictive value = \(P(D|+) = 0.02 < 0.5\), so we can not
+  confirm the prostate cancer with a positive outcome.
+\item
+  Minimum specificity \(0.9959\).
 \end{enumerate}
 
 \end{tcolorbox}
