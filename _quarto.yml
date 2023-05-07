@@ -2,6 +2,10 @@ project:
   type: book
   output-dir: "docs"
 
+execute: 
+  freeze: auto
+  cache: true
+
 website:
   favicon: "img/logos/favicon.ico"
   reader-mode: true
