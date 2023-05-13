@@ -1,8 +1,17 @@
 ---
-title: 2022-06-06<br>Descriptive Statistics and Regression Exam
+title: 2022-06-06 <br>Descriptive Statistics and Regression
 date: 2022-06-06
 lang: en
 ---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+```{r libraries}
+library(tidyverse)
+library(kableExtra)
+```
 
 :::{#exr-1}
 ```{r echo=FALSE, results="hide"}

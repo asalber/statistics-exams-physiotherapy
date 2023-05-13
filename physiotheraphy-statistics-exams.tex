@@ -51,46 +51,6 @@
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -278,7 +238,7 @@ Sánchez
 Alberca}\\ \textsf{asalber@ceu.es} \\ \textsf{https://aprendeconalf.es}}
 \end{tabular}
 \end{flushleft}
-\end{titlepage}\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, interior hidden, enhanced, frame hidden, boxrule=0pt, sharp corners, breakable]}{\end{tcolorbox}}\fi
+\end{titlepage}\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, frame hidden, boxrule=0pt, enhanced, sharp corners, interior hidden, breakable]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -298,65 +258,15 @@ Statistics exam collection of the Physiotherapy degree.
 
 \bookmarksetup{startatroot}
 
-\hypertarget{descriptive-statistics-and-regression-exam}{%
-\chapter{\texorpdfstring{2018/05/31Descriptive Statistics and Regression
-exam}{2018/05/31 Descriptive Statistics and Regression exam}}\label{descriptive-statistics-and-regression-exam}}
+\hypertarget{descriptive-statistics-and-regression}{%
+\chapter{\texorpdfstring{2018-05-31 Descriptive Statistics and
+Regression}{2018-05-31  Descriptive Statistics and Regression}}\label{descriptive-statistics-and-regression}}
 
 \begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
 ~
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\DocumentationTok{\#\# data}
-\FunctionTok{options}\NormalTok{(}\AttributeTok{scipen =} \DecValTok{999}\NormalTok{)}
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{51}\NormalTok{,}\DecValTok{63}\NormalTok{,}\DecValTok{61}\NormalTok{,}\DecValTok{44}\NormalTok{,}\DecValTok{63}\NormalTok{,}\DecValTok{57}\NormalTok{,}\DecValTok{53}\NormalTok{,}\DecValTok{63}\NormalTok{,}\DecValTok{44}\NormalTok{,}\DecValTok{59}\NormalTok{,}\DecValTok{51}\NormalTok{,}\DecValTok{56}\NormalTok{,}\DecValTok{58}\NormalTok{,}\DecValTok{59}\NormalTok{,}\DecValTok{25}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{58}\NormalTok{,}\DecValTok{58}\NormalTok{)}
-\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{66}\NormalTok{,}\DecValTok{71}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{85}\NormalTok{,}\DecValTok{72}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{68}\NormalTok{,}\DecValTok{74}\NormalTok{)}
-\NormalTok{ages }\OtherTok{\textless{}{-}} \FunctionTok{sort}\NormalTok{(}\FunctionTok{c}\NormalTok{(x,y))}
-
-\DocumentationTok{\#\# questions/answer}
-\NormalTok{nx }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(x)}
-\NormalTok{ny }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(y)}
-\NormalTok{n }\OtherTok{\textless{}{-}}\NormalTok{ nx}\SpecialCharTok{+}\NormalTok{ny}
-\CommentTok{\# quartiles}
-\NormalTok{q1 }\OtherTok{\textless{}{-}} \FunctionTok{quantile}\NormalTok{(ages,}\AttributeTok{probs =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.25}\NormalTok{), }\AttributeTok{type=}\DecValTok{1}\NormalTok{)}
-\NormalTok{q2 }\OtherTok{\textless{}{-}} \FunctionTok{quantile}\NormalTok{(ages,}\AttributeTok{probs =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{), }\AttributeTok{type=}\DecValTok{1}\NormalTok{)}
-\NormalTok{q3 }\OtherTok{\textless{}{-}} \FunctionTok{quantile}\NormalTok{(ages,}\AttributeTok{probs =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.75}\NormalTok{), }\AttributeTok{type=}\DecValTok{1}\NormalTok{)}
-\CommentTok{\# interquartile range}
-\NormalTok{iqr }\OtherTok{\textless{}{-}}\NormalTok{ q3}\SpecialCharTok{{-}}\NormalTok{q1}
-\CommentTok{\#fences}
-\NormalTok{f1 }\OtherTok{\textless{}{-}}\NormalTok{ q1}\FloatTok{{-}1.5}\SpecialCharTok{*}\NormalTok{iqr}
-\NormalTok{f2 }\OtherTok{\textless{}{-}}\NormalTok{ q3}\FloatTok{+1.5}\SpecialCharTok{*}\NormalTok{iqr}
-\CommentTok{\# outliers}
-\NormalTok{outliers }\OtherTok{\textless{}{-}}\NormalTok{ ages[ages}\SpecialCharTok{\textless{}}\NormalTok{f1 }\SpecialCharTok{|}\NormalTok{ ages }\SpecialCharTok{\textgreater{}}\NormalTok{f2]}
-\CommentTok{\# means}
-\NormalTok{mx }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(x)}
-\NormalTok{my }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(y)}
-\CommentTok{\# variances}
-\NormalTok{s2x }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(x}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{nx}\SpecialCharTok{{-}}\NormalTok{mx}\SpecialCharTok{\^{}}\DecValTok{2}
-\NormalTok{s2y }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(y}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{ny}\SpecialCharTok{{-}}\NormalTok{my}\SpecialCharTok{\^{}}\DecValTok{2}
-\CommentTok{\# standard deviation}
-\NormalTok{sx }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(s2x)}
-\NormalTok{sy }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(s2y)}
-\CommentTok{\# coef. variation}
-\NormalTok{cvx }\OtherTok{\textless{}{-}}\NormalTok{ sx}\SpecialCharTok{/}\NormalTok{mx}
-\NormalTok{cvy }\OtherTok{\textless{}{-}}\NormalTok{ sy}\SpecialCharTok{/}\NormalTok{my}
-\CommentTok{\# coef. skewness}
-\NormalTok{g1x }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((x}\SpecialCharTok{{-}}\NormalTok{mx)}\SpecialCharTok{\^{}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(nx}\SpecialCharTok{*}\NormalTok{sx}\SpecialCharTok{\^{}}\DecValTok{3}\NormalTok{)}
-\NormalTok{g1y }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((y}\SpecialCharTok{{-}}\NormalTok{my)}\SpecialCharTok{\^{}}\DecValTok{3}\NormalTok{)}\SpecialCharTok{/}\NormalTok{(ny}\SpecialCharTok{*}\NormalTok{sy}\SpecialCharTok{\^{}}\DecValTok{3}\NormalTok{)}
-\CommentTok{\# standard scores}
-\NormalTok{zx }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{50}\SpecialCharTok{{-}}\NormalTok{mx)}\SpecialCharTok{/}\NormalTok{sx}
-\NormalTok{zy }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{72}\SpecialCharTok{{-}}\NormalTok{my)}\SpecialCharTok{/}\NormalTok{sy}
-\end{Highlighting}
-\end{Shaded}
-
 The ages of a sample of patients of a physical therapy clinic are:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{kable}\NormalTok{(}\FunctionTok{matrix}\NormalTok{(ages, }\AttributeTok{ncol =} \DecValTok{13}\NormalTok{, }\AttributeTok{byrow =}\NormalTok{ T)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_styling}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 \centering
@@ -398,7 +308,7 @@ Older than 65: \(\sum x_i=588\) years, \(\sum x_i^2=43530\) years\(^2\),
 
 \end{exercise}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -409,31 +319,7 @@ Older than 65: \(\sum x_i=588\) years, \(\sum x_i^2=43530\) years\(^2\),
   There are 2 outliers: 25, 30.
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{boxplot}\NormalTok{(ages, }\AttributeTok{horizontal=}\NormalTok{T, }\AttributeTok{main=}\StringTok{"Boxplot of patients ages"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{img/exam-2018-05-31/boxplot-ages-1.pdf}
-
-}
-
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# require(ggplot2)}
-\CommentTok{\# data \textless{}{-} data.frame(ages)}
-\CommentTok{\# g \textless{}{-} ggplot(data, aes(x="", y=ages)) + geom\_boxplot() + }
-\CommentTok{\#   labs(title="Boxplot of patients ages", x="Patients", y = "Ages") + }
-\CommentTok{\#   coord\_flip() + }
-\CommentTok{\#   theme(plot.title = element\_text(hjust = 0.5))}
-\CommentTok{\# print(g)}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{img/exam-2018-05-31/boxplot-ages-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -463,12 +349,6 @@ Older than 65: \(\sum x_i=588\) years, \(\sum x_i^2=43530\) years\(^2\),
 
 The table below shows the number of injuries of several teams during a
 league and the average warm-up time of its players.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{kable}\NormalTok{(table) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_styling}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{table}
 \centering
@@ -510,7 +390,7 @@ Use the following sums for the computations (\(X\) warm-up time and
 
 \end{exercise}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -518,19 +398,7 @@ Use the following sums for the computations (\(X\) warm-up time and
 \item
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{plot}\NormalTok{(x, y, }\AttributeTok{main=}\StringTok{"Scatter plot of warm{-}up time and injuries"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Warm{-}up time"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Injuries"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{img/exam2018-05-31/scatterplot-injuries-warm-up-1.pdf}
-
-}
-
-\end{figure}
+\includegraphics{img/exam2018-05-31/scatterplot-injuries-warm-up-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -563,9 +431,9 @@ Use the following sums for the computations (\(X\) warm-up time and
 
 \bookmarksetup{startatroot}
 
-\hypertarget{probability-and-random-variables-exam}{%
-\chapter{\texorpdfstring{2022-05-06Probability and Random Variables
-Exam}{2022-05-06 Probability and Random Variables Exam}}\label{probability-and-random-variables-exam}}
+\hypertarget{probability-and-random-variables}{%
+\chapter{\texorpdfstring{2022-05-06 Probability and Random
+Variables}{2022-05-06  Probability and Random Variables}}\label{probability-and-random-variables}}
 
 \begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
@@ -593,7 +461,7 @@ people who have a heart attack consume cocaine.
   for this study? Interpret it.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 Let \(C\) the event of consuming cocaine and \(H\) the event of having a
 heart attack.
@@ -646,7 +514,7 @@ A basketball player scores 12 points per game on average.
   scoring less than 6 points in some game?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -695,7 +563,7 @@ population, ranges from 40 to 308 IU/L in healthy adult males.
   that the muscular dystrophy prevalence is 8\%.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -720,9 +588,9 @@ population, ranges from 40 to 308 IU/L in healthy adult males.
 
 \bookmarksetup{startatroot}
 
-\hypertarget{descriptive-statistics-and-regression-exam-1}{%
-\chapter{\texorpdfstring{2022-06-06Descriptive Statistics and Regression
-Exam}{2022-06-06 Descriptive Statistics and Regression Exam}}\label{descriptive-statistics-and-regression-exam-1}}
+\hypertarget{descriptive-statistics-and-regression-1}{%
+\chapter{\texorpdfstring{2022-06-06 Descriptive Statistics and
+Regression}{2022-06-06  Descriptive Statistics and Regression}}\label{descriptive-statistics-and-regression-1}}
 
 \begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
@@ -768,7 +636,7 @@ Use the following sums for the computations:\\
 \(\sum (x_i-\bar x)^3n_i=-548.25\) and
 \(\sum (x_i-\bar x)^4n_i=5140.45\).
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 Let \(X\) be the patient assessment. a. \(Q_1= 4.4444\), \(Q_3=9.0907\)
 and \(IQR = 4.6463\), so the central dispersion is moderate.
@@ -841,7 +709,7 @@ Use the following sums (\(X\)=Weeks and \(Y\)=Grip strength):\\
 \(\sum x_iy_j=3552\), \(\sum x_i\log(y_j)=342.9642\),
 \(\sum \log(x_i)y_j=608.4186\), \(\sum \log(x_i)\log(y_j)=60.047\).
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -878,9 +746,9 @@ Use the following sums (\(X\)=Weeks and \(Y\)=Grip strength):\\
 
 \bookmarksetup{startatroot}
 
-\hypertarget{probability-and-random-variables-exam-1}{%
-\chapter{\texorpdfstring{2022-06-06Probability and Random Variables
-Exam}{2022-06-06 Probability and Random Variables Exam}}\label{probability-and-random-variables-exam-1}}
+\hypertarget{probability-and-random-variables-1}{%
+\chapter{\texorpdfstring{2022-06-06 Probability and Random
+Variables}{2022-06-06  Probability and Random Variables}}\label{probability-and-random-variables-1}}
 
 \begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
@@ -902,7 +770,7 @@ injury is 10\%
   with a positive outcome of the test?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -946,7 +814,7 @@ vaccine and 100 units of the \(B\) vaccine.
   side effect?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -991,7 +859,7 @@ cm.
   neither of them has a femur length less than 45 cm?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 Let \(X\) and \(Y\) be the femur length of women and men respectively.
 Then \(X\sim N(\mu_x, 4)\) and \(Y\sim N(\mu_y,4)\).
@@ -1014,9 +882,9 @@ Then \(X\sim N(\mu_x, 4)\) and \(Y\sim N(\mu_y,4)\).
 
 \bookmarksetup{startatroot}
 
-\hypertarget{descriptive-statistics-and-regression-exam-2}{%
-\chapter{\texorpdfstring{2023/03/23Descriptive Statistics and Regression
-exam}{2023/03/23 Descriptive Statistics and Regression exam}}\label{descriptive-statistics-and-regression-exam-2}}
+\hypertarget{descriptive-statistics-and-regression-2}{%
+\chapter{\texorpdfstring{2023-03-23 Descriptive Statistics and
+Regression}{2023-03-23  Descriptive Statistics and Regression}}\label{descriptive-statistics-and-regression-2}}
 
 \begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
@@ -1025,21 +893,7 @@ exam}{2023/03/23 Descriptive Statistics and Regression exam}}\label{descriptive-
 The chart below shows the percentage of grades in a Statistic course
 with 60 students.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(lessR)}
-\CommentTok{\# Pie chart of grades}
-\FunctionTok{PieChart}\NormalTok{(z, }\AttributeTok{hole =} \DecValTok{0}\NormalTok{, }\AttributeTok{values =} \StringTok{"\%"}\NormalTok{, }\AttributeTok{data =}\NormalTok{ df, }\AttributeTok{main =} \StringTok{""}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{img/exam-2023-03-23/pie-chart-scores-1.pdf}
-
-}
-
-\end{figure}
+\includegraphics{img/exam-2023-03-23/pie-chart-scores-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1079,7 +933,7 @@ Use the following sums for the computations (\(X\) = Score):\\
 \(\sum (x_i-\bar x)^3n_i=-172.55\) and
 \(\sum (x_i-\bar x)^4n_i=2870.75\).
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1088,23 +942,7 @@ Use the following sums for the computations (\(X\) = Score):\\
   Ogive
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{color1 }\OtherTok{\textless{}{-}} \StringTok{"\#00BFC4"}
-\FunctionTok{plot}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.7}\NormalTok{, }\FloatTok{0.95}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{col =}\NormalTok{ color1, }\AttributeTok{xlab =} \StringTok{"Score"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Cumulative relative frequency"}\NormalTok{, }\AttributeTok{axes =}\NormalTok{ F)}
-\FunctionTok{axis}\NormalTok{(}\DecValTok{1}\NormalTok{, }\AttributeTok{at =} \DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)}
-\FunctionTok{axis}\NormalTok{(}\DecValTok{2}\NormalTok{, }\AttributeTok{at =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\FloatTok{0.1}\NormalTok{))}
-\FunctionTok{box}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{img/exam-2023-03-23/ogive-scores-1.pdf}
-
-}
-
-\end{figure}
+\includegraphics{img/exam-2023-03-23/ogive-scores-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1163,7 +1001,7 @@ log(years)\(^2\), \(\sum y_j^2=62734.685\) weeks\(^2\),
   gestation time for every year of the mother?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1204,9 +1042,9 @@ log(years)\(^2\), \(\sum y_j^2=62734.685\) weeks\(^2\),
 
 \bookmarksetup{startatroot}
 
-\hypertarget{probability-and-random-variables-exam-2}{%
-\chapter{\texorpdfstring{2023-04-27Probability and Random Variables
-Exam}{2023-04-27 Probability and Random Variables Exam}}\label{probability-and-random-variables-exam-2}}
+\hypertarget{probability-and-random-variables-2}{%
+\chapter{\texorpdfstring{2023-04-27 Probability and Random
+Variables}{2023-04-27  Probability and Random Variables}}\label{probability-and-random-variables-2}}
 
 \begin{exercise}[]\protect\hypertarget{exr-1}{}\label{exr-1}
 
@@ -1227,7 +1065,7 @@ A water source contaminated contains 0.1 amoebas per litre on average.
   the probability that less than 5 are infected with amoebas?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -1273,7 +1111,7 @@ that the two problems are independent,
   intolerance.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 Let \(A\) the event of having respiratory allergies and \(B\) the event
 of having food intolerance.
@@ -1313,7 +1151,7 @@ normal distribution with mean 29 cm and standard deviation 2.4 cm.
   quartile, has a back width above 32.
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 Let \(X\) be the back width, then \(X\sim N(29, 2.4)\).
 
@@ -1352,7 +1190,7 @@ prostate cancer in a population is 2\%.
   disease with a positive outcome?
 \end{enumerate}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, breakable, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, toprule=.15mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, left=2mm, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, titlerule=0mm, arc=.35mm, opacityback=0, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, toprule=.15mm, colframe=quarto-callout-tip-color-frame, colback=white, bottomrule=.15mm, leftrule=.75mm, titlerule=0mm, opacityback=0, toptitle=1mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Solution}, opacitybacktitle=0.6, arc=.35mm, breakable, left=2mm, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}

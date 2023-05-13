@@ -1,11 +1,20 @@
 ---
-title: 2023-04-27<br>Probability and Random Variables Exam 
+title: 2023-04-27 <br>Probability and Random Variables
 date: 2023-04-27
 lang: en
 ---
 
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+```{r libraries}
+library(tidyverse)
+library(kableExtra)
+```
+
 :::{#exr-1}
-```{r echo=FALSE, results="hide"}
+```{r results="hide"}
 ## DATA GENERATION
 lambda = 0.1
 n1 <- 5

@@ -1,11 +1,15 @@
 ---
-title: 2023/03/23<br>Descriptive Statistics and Regression exam
+title: 2023-03-23 <br>Descriptive Statistics and Regression
 lang: en
 date: 2023-03-23
 ---
 
-```{r setup, include=FALSE}
+```{r setup, echo = F}
 knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+```{r libraries}
+library(tidyverse)
 library(kableExtra)
 ```
 
