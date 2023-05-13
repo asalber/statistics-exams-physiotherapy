@@ -1,5 +1,5 @@
 ---
-title: Descriptive Statistics and Regression exam  (2018/05/31)
+title: 2018/05/31<br>Descriptive Statistics and Regression exam
 lang: en
 date: 2018-05-31
 ---

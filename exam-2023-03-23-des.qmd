@@ -1,5 +1,5 @@
 ---
-title: Descriptive Statistics and Regression exam  (2023/03/23)
+title: 2023/03/23<br>Descriptive Statistics and Regression exam
 lang: en
 date: 2023-03-23
 ---

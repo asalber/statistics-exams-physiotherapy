@@ -1,5 +1,5 @@
 ---
-title: Probability and Random Variables Exam (2023-04-27)
+title: 2023-04-27<br>Probability and Random Variables Exam 
 date: 2023-04-27
 lang: en
 ---
