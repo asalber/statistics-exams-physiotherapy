@@ -1,0 +1,135 @@
+---
+title: 2023-05-30 <br>Probability and Random Variables
+date: 2023-05-30
+lang: en
+---
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+```{r libraries, echo = F}
+library(tidyverse)
+library(kableExtra)
+```
+
+:::{#exr-1}
+```{r echo=FALSE, results="hide"}
+## DATA GENERATION
+n <- 3.5*10^6
+nM <- 1.5*10^6
+nB <- 0.75*10^6
+nT <- 0.45*10^6
+pBsiM <- 0.3
+pTsiM <- 0.1
+pBTsiM <- 0.05
+pTsiB <- 0.15
+```
+
+In a city of 3.5 million inhabitants there are three urban transport systems: metro, bus and tram. In general, on a working day, the number of travelers is 1.500.000 for the metro, 750.000 for the bus and 450.000 for the tram. Moreover, it is known that 30% of metro travelers also use the bus, 10% of metro travelers also use the tram and 5% of metro travelers also use both bus and tram. Finally, 15% of bus travelers also use the tram. (Hint: An inhabitant can take or not the urban transport).
+
+a.  Calculate the probability that, on a working day, an inhabitant uses only one of three transport systems. 
+
+a.  Calculate the probability that, in a working day, an inhabitant uses at least one transport system. 
+
+a.  When only a transport system is used, there is a 2% probability of having a delay of more than 5 minutes on a working day. However, the probability of having such a delay rises to 7% when combining more than one transport system in a working day. Calculate the probability that an inhabitant suffers a delay of more than 5 minutes on a working day.
+
+a.  With the same information as in part (c) and knowing that a traveler suffered a delay of more than 5 minutes, calculate the probability that this traveler took more than one transport system.
+
+:::{.callout-tip collapse="true"}
+## Solution
+Let $M$, $B$ and $T$ the events corresponding to picking the metro, bus and tram respectively.
+
+a.  $P(\mbox{Only one transport}) = P(M\cap\overline B\cap \overline T) + P(\overline M\cap B\cap \overline T) + P(\overline M \cap \overline B\cap T) = 0.5185$.
+
+a.  $P(\mbox{At least one transport}) = P(M\cup B\cup T) = 0.6793$.
+
+a.  Let $D$ the event of suffering a delay of more than 5 minutes. Then, $P(D) = 0.0216$.
+
+a.  $P(\mbox{More than one transport}|D) = 0.5211$.
+:::
+:::
+
+:::{#exr-2}
+```{r echo=FALSE, results="hide"}
+## DATA GENERATION
+nT <- 500
+nC <- 500
+nDT <- 45
+nDC <- 125
+## QUESTION/ANSWER GENERATION
+rT <- nDT / nT
+rC <- nDC / nC
+rr <- rT / rC
+oT <- nDT / (nT-nDT)
+oC <- nDC / (nC-nDC)
+or <- oT / oC
+n <- 20
+p1 <- pbinom(1, n, rC, lower.tail = F)
+p2 <- ppois(1, 100*rT)
+```
+
+To study the effectiveness of an exercise program in front of the computer to delay the onset of presbyopia, a sample of 1000 40-year-old people without presbyopia was taken and divided into two groups of equal size. One group followed the exercise program and the other did not. After 10 years there were 45 people who developed presbyopia in the group that followed the exercise program and 125 in the group that did not follow the program.
+
+a.  Calculate the risk of developing presbyopia without following the exercise program.
+
+a.   Calculate the relative risk of developing presbyopia if the exercise program is followed and interpret it.
+
+a.  Calculate the odds ratio of developing presbyopia if the exercise program is followed and interpret it.
+
+a.  What type of association measure is most appropriate in this study?
+
+a.  If a sample of 20 40-year-old people without presbyopia is taken, what is the probability that at least 2 will develop presbyopia if they do not follow the exercise program?
+
+a.  If a sample of 100 40-year-old people without presbyopia is taken, what is the probability that fewer than 2 will develop presbyopia if they follow the exercise program?
+
+:::{.callout-tip collapse="true"}
+## Solution
+a.  Let $D$ the event of suffering Presbyopia. Then $R_C(D) = `r round(rC, 4)`$.
+
+a.  $RR(D) = `r round(rr, 4)`$. The risk of suffering Presbyopia following the exercise program is almost one third of the risk not following the exercise program.
+
+a.  $OR(D) = `r round(or, 4)`$. The odds of suffering Presbyopia following the exercise program is almost one fourth of the odds not following the exercise program.
+
+a.  Let $X$ be the number of persons not following the program of exercises that develops presbyopia in a sample of 20. Then $X\sim B(20, 0.25)$ and $P(X\geq 2) = `r round(p1,4)`$.
+
+a.  Let $Y$ be the number of persons following the program of exercises that develops presbyopia in a sample of 100. Then $X\sim B(100, 0.09)\approx P(9)$ and $P(X< 2) = `r round(p2,4)`$.
+:::
+:::
+
+:::{#exr-3}
+```{r echo=FALSE, results="hide"}
+## DATA GENERATION
+mx <- 60
+sx <- 8
+## QUESTION/ANSWER GENERATION
+p1 <- pnorm(52, mx, sx)
+p33 <- qnorm(0.33, mx, sx)
+p2 <- pnorm(84, mx, sx, lower.tail = F)
+p3 <- pnorm(54, mx, sx)
+p4 <- pbinom(0, 6, p3, lower.tail = F)
+```
+
+For weightlifters, the recovery time after a lumbar vertebrae injury follows a normal distribution with a mean of 60 days and a standard deviation of 8 days. Knowing this, answer the following questions:
+
+a.  If we take a sample consisting of 200 weightlifters, how many of them will recover from the injury in 52 days or less?
+
+a.  How long should we expect to take a weightlifter in percentile 33 of our distribution to recover?
+
+a.  If the Olympic Games take place in 84 days, and a competitor has just had his lumbar vertebrae injured, what is the probability for him not to take part in the competition?
+
+a.  In 54 days, the qualifying tournament for the Weightlifting World Championship will take place, and 6 competitors have suffered lumbar vertebrae injury today. What is the probability that at least one of them will recover on time to compete in that tournament?
+
+:::{.callout-tip collapse="true"}
+## Solution
+Let $X$ be the recovery time after a lumbar vertebrae injury, then $X\sim N(`r mx`, `r sx`)$.
+
+a. $P(X<52) = `r round(p1, 4)`$ and approximately $`r round(200*p1)`$ weightlifters will recover in 52 days or less.
+
+a. $P_{33} = `r round(p33, 4)`$ days.
+
+a. $P(X>84) = `r round(p2, 4)`$.
+
+a.  Let $Y$ the number of weightlifters that recover in less than 54 days in a sample of 6 weightlifters just injured. Then $Y\sim B(6, `r round(p3,4)`)$ and $P(Y\geq 1) = `r round(p4,4)`$.
+:::
+:::
